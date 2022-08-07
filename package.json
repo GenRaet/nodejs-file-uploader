@@ -1,5 +1,5 @@
 {
-  "name": "nodejs_file_uploader",
+  "name": "nodejs-file-uploader",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
