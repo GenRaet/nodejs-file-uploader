@@ -1,0 +1,15 @@
+{
+  "name": "file_upload",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "nodemon index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "express": "^4.18.1",
+    "express-form-data": "^2.0.18"
+  }
+}
