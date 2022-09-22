@@ -55,7 +55,7 @@
                 allElement.innerHTML += `
                 <div class="wrapper">
                     <div class="image-wrapper">
-                        <img class="image" src="/api/reader/${value}">
+                        <img class="image" src="/api/reader/?filename=${encodeURIComponent(value)}">
                     </div>
                     <span class="title">
                         ${value}

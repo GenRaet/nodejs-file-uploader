@@ -5,6 +5,7 @@
   "scripts": {
     "test": "nodemon --ignore files/* index.js"
   },
+  "type": "module",
   "author": "",
   "license": "ISC",
   "description": "",
