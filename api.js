@@ -4,12 +4,13 @@ import path from "path";
 import sharp from "sharp";
 
 const rootPath = path.dirname(process.argv[1]);
+const fileDir = path.join(rootPath, "files");
 
 const router = Express.Router();
 
 router.use(FormData.parse({ uploadDir: path.join(rootPath, "tmp"), autoClean: true }));
 
-router.post("/api/upload", (req, res) => {
+router.post("/upload", (req, res) => {
     console.log(`リクエストを受信しました リモートアドレス ${req.ip}`);
     const n = req.files.image.length;
     for (let i = 0; i < n; i++) {
@@ -23,24 +24,24 @@ router.post("/api/upload", (req, res) => {
     res.redirect("/");
 })
 
-router.get("/api/all", (req, res) => {
+router.get("/all", (req, res) => {
     const all = fs.readdirSync(path.join(rootPath, "files"));
     res.json(all);
 })
 
-router.get("/api/reader", (req, res) => {
+router.get("/reader", (req, res) => {
     if (!req.query["filename"])
         return;
     const fileStream = fs.createReadStream(path.join(rootPath, "files", req.query["filename"]));
     fileStream.pipe(res);
 })
 
-router.get("/api/clear", (req, res) => {
+router.get("/clear", (req, res) => {
     const all = fs.readdirSync(path.join(rootPath, "files"));
     all.forEach(v => fs.unlink(path.join(rootPath, "/files/", v), (err) => { throw err; }));
 })
 
-router.get("/api/convert-to-webp", (req, res) => {
+router.get("/convert-to-webp", (req, res) => {
 
 })
 
